@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head><script src="https://cloudflare.com"></script></head>
+<body>
+    <input type="password" id="pw" placeholder="输入密钥">
+    <textarea id="text" style="width:100%; height:100px;"></textarea>
+    <button onclick="save()">加密存入本地</button>
+    <script>
+        function save() {
+            const encrypted = CryptoJS.AES.encrypt(document.getElementById('text').value, document.getElementById('pw').value).toString();
+            localStorage.setItem('secret_note', encrypted);
+            alert("已加密保存到浏览器缓存");
+        }
+    </script>
+</body>
+</html>
